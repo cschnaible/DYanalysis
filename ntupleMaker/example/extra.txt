@@ -1,0 +1,138 @@
+      int nMuAcc = 0;
+      int nMuTot = 0;
+      int nMuAcc_Etag1p5 = 0;
+      int nMuTot_Etag1p5 = 0;
+      int nMuAcc_Etal1p5 = 0;
+      int nMuTot_Etal1p5 = 0;
+      int nMuAcc_EtaA    = 0;
+      int nMuTot_EtaA    = 0;
+      int nMuAcc_EtaB    = 0;
+      int nMuTot_EtaB    = 0;
+      int nMuAcc_EtaC    = 0;
+      int nMuTot_EtaC    = 0;
+      int nMuAcc_EtaD    = 0;
+      int nMuTot_EtaD    = 0;
+      
+      int nZacc = 0;
+      int nZtot = 0;
+        if ( fabs(aGenLepton.pdgId)==13 && aGenLepton.motherId == 23) {
+
+            // -1.5 < Eta < 1.5 && Pt > 20
+            if ( fabs(aGenLepton.p4.Eta())<1.5 && aGenLepton.p4.Pt() > 20 ) nMuAcc_Etal1p5++;
+            if ( fabs(aGenLepton.p4.Eta())<1.5 ) nMuTot_Etal1p5++;
+
+            // -2.4 < Eta < -1.5 && 1.5 < Eta < 2.4 && Pt > 20
+            if ( fabs(aGenLepton.p4.Eta())<2.4 && fabs(aGenLepton.p4.Eta())>1.5 && aGenLepton.p4.Pt() > 20 ) nMuAcc_Etag1p5++;
+            if ( fabs(aGenLepton.p4.Eta())<2.4 && fabs(aGenLepton.p4.Eta())>1.5 ) nMuTot_Etag1p5++;
+
+            // -2.4 < Eta < 2.4 && Pt > 20
+            if ( aGenLepton.p4.Pt() > 20 && fabs(aGenLepton.p4.Eta()) < 2.4 )  nMuAcc++;
+            nMuTot++;    
+
+            // -2.4 < Eta < -1.5 && Pt > 20
+            if ( aGenLepton.p4.Eta() > -2.4 && aGenLepton.p4.Eta() < -1.5 && aGenLepton.p4.Pt() > 20 ) nMuAcc_EtaA++;
+            if ( aGenLepton.p4.Eta() > -2.4 && aGenLepton.p4.Eta() < -1.5 ) nMuTot_EtaA++;
+
+            // -1.5 < Eta < 0 && Pt > 20
+            if ( aGenLepton.p4.Eta() > -1.5 && aGenLepton.p4.Eta() < 0 && aGenLepton.p4.Pt() > 20 ) nMuAcc_EtaB++;
+            if ( aGenLepton.p4.Eta() > -1.5 && aGenLepton.p4.Eta() < 0 ) nMuTot_EtaB++;
+            
+            // 0 < Eta < 1.5 && Pt > 20
+            if ( aGenLepton.p4.Eta() > 0 && aGenLepton.p4.Eta() < 1.5 && aGenLepton.p4.Pt() > 20 ) nMuAcc_EtaC++;
+            if ( aGenLepton.p4.Eta() > 0 && aGenLepton.p4.Eta() < 1.5 ) nMuTot_EtaC++;
+            
+            // 1.5 < Eta < 2.4 && Pt > 20
+            if ( aGenLepton.p4.Eta() > 1.5 && aGenLepton.p4.Eta() < 2.4 && aGenLepton.p4.Pt() > 20 ) nMuAcc_EtaD++;
+            if ( aGenLepton.p4.Eta() > 1.5 && aGenLepton.p4.Eta() < 2.4 ) nMuTot_EtaD++;
+            
+
+        } // if (fabs(aGenLepton.pdgId)==13)
+    // Z candidate acceptance
+    // Baseline cuts
+    bool Ztot(false);
+    Ztot = myGenLeptons.size()>1; // At least two leptons
+    //Ztot = Ztot && myGenLeptons[0].motherId == 23 && myGenLeptons[1].motherId == 23; // mother particle was a Z
+    Ztot = Ztot && fabs(myGenLeptons[0].pdgId)==13 && fabs(myGenLeptons[1].pdgId)==13; // Two muons
+    Ztot = Ztot && myGenLeptons[0].charge*myGenLeptons[1].charge<0; // Opposite sign charges
+    Ztot = Ztot && llP4GEN.M()>60 && llP4GEN.M()<120; // mass window
+    // Acceptance cuts (placed in example/extras.txt)
+    bool Zacc(false);
+    if ( Ztot ) {
+        Zacc = myGenLeptons[0].p4.Pt()>20 && myGenLeptons[1].p4.Pt()>10; // Pt cuts
+        Zacc = Zacc && fabs(myGenLeptons[0].p4.Eta())<2.4 && fabs(myGenLeptons[1].p4.Eta())<2.4; // Eta cuts
+        if ( Zacc ) nZacc++;
+        nZtot++;
+    }
+    cout << endl;
+    cout << "Acceptance Calculations" << endl;
+    cout << endl;
+    cout << "Single Muon Pt>20 && |eta|<2.4 Acceptance          " << nMuAcc << "/" << nMuTot << " = " << (float)nMuAcc/nMuTot << endl;
+    cout << "Single Muon Pt>20 && |eta|<1.5 Acceptance          " << nMuAcc_Etal1p5 << "/" << nMuTot_Etal1p5 << " = " << (float)nMuAcc_Etal1p5/nMuTot_Etal1p5 << endl;
+    cout << "Single Muon Pt>20 && 1.5<|eta|<2.4 Acceptance      " << nMuAcc_Etag1p5 << "/" << nMuTot_Etag1p5 << " = " << (float)nMuAcc_Etag1p5/nMuTot_Etag1p5 << endl;
+    cout << endl;
+    cout << "Single Muon Pt>20Gev/c acceptance: " << endl;
+    cout << "-2.4 < Eta < -1.5 : " << nMuAcc_EtaA << "/" << nMuTot_EtaA << " = " << (float)nMuAcc_EtaA/nMuTot_EtaA << endl;
+    cout << "-1.5 < Eta < 0    : " << nMuAcc_EtaB << "/" << nMuTot_EtaB << " = " << (float)nMuAcc_EtaB/nMuTot_EtaB << endl;
+    cout << "   0 < Eta < 1.5  : " << nMuAcc_EtaC << "/" << nMuTot_EtaC << " = " << (float)nMuAcc_EtaC/nMuTot_EtaC << endl;
+    cout << " 1.5 < Eta < 2.4  : " << nMuAcc_EtaD << "/" << nMuTot_EtaD << " = " << (float)nMuAcc_EtaD/nMuTot_EtaD << endl;
+    cout << endl;
+    cout << "Number of gen Z candidates with each gen muon passing Pt>20 && |eta|<2.4 and the dilepton invariant mass 60<m<120" << endl;
+    cout << nZacc << "/" << nZtot << " = " << (float)nZacc/nZtot << endl;    
+    cout << endl;
+// struct PARTICLE {
+//         float qoverp;
+//         float theta;
+//         float lambda;
+//         float dxy;
+//         float d0;
+//         float dsz;
+//         float dz;
+//         float dxyBS;
+//         float dzBS;
+//         float dszBS;
+//         float vx;
+//         float vy;
+//         float vz;
+//};
+//vector<float> *qoverp, *theta, *lambda, *dxy, *dz, *d0, *dsz, *vx, *vy, *vz; //*dzBS, *dxyBS, *dszBS;
+//if (i_mu.globalTrack().isNonnull()) {
+//        aLepton.qoverp          = i_mu.globalTrack()->qoverp();
+//        aLepton.theta           = i_mu.globalTrack()->theta();
+//        aLepton.lambda          = i_mu.globalTrack()->lambda();
+//        aLepton.dxy             = i_mu.globalTrack()->dxy();
+//        aLepton.d0              = i_mu.globalTrack()->d0();
+//        aLepton.dsz             = i_mu.globalTrack()->dsz();
+//        aLepton.dz              = i_mu.globalTrack()->dz();
+//        //aLepton.dxyBS           = i_mu.globalTrack()->dxyBS();
+//        //aLepton.dszBS           = i_mu.globalTrack()->dszBS();
+//        //aLepton.dzBS           = i_mu.globalTrack()->dzBS();
+//        aLepton.vx           = i_mu.globalTrack()->vx();
+//        aLepton.vy           = i_mu.globalTrack()->vy();
+//        aLepton.vz           = i_mu.globalTrack()->vz();
+//}
+//   lepQoverP_                  = new std::vector<float>();
+//   leptheta_                   = new std::vector<float>();
+//   leplambda_                  = new std::vector<float>();
+//   lepdxy_                     = new std::vector<float>();
+//   lepdz_                      = new std::vector<float>();
+//   lepdsz_                     = new std::vector<float>();
+//   lepd0_                      = new std::vector<float>();
+//   lepdxyBS_                   = new std::vector<float>();
+//   lepdzBS_                    = new std::vector<float>();
+//   lepdszBS_                   = new std::vector<float>();
+//   lepvx_                      = new std::vector<float>();
+//   lepvy_                      = new std::vector<float>();
+//   lepvz_                      = new std::vector<float>();
+   //myTree_->Branch("lepQoverP"        ,"vector<float>"     ,&lepQoverP_);
+   //myTree_->Branch("lepTheta"        ,"vector<float>"     ,&leptheta_);
+   //myTree_->Branch("lepLambda"        ,"vector<float>"     ,&leplambda_);
+   //myTree_->Branch("lepDxy"        ,"vector<float>"     ,&lepDxy_);
+   //myTree_->Branch("lepD0"        ,"vector<float>"     ,&lepD0_);
+   //myTree_->Branch("lepDz"        ,"vector<float>"     ,&lepDz_);
+   //myTree_->Branch("lepDsz"        ,"vector<float>"     ,&lepDsz_);
+   //myTree_->Branch("lepVx"        ,"Vector<float>"     ,&lepVx_);
+   //myTree_->Branch("lepVy"        ,"Vector<float>"     ,&lepVy_);
+   //myTree_->Branch("lepVz"        ,"Vector<float>"     ,&lepVz_);
+   //myTree_->Branch("lepdxyBS"        ,"vector<float>"     ,&lepdxyBS_);
+   //myTree_->Branch("lepdzBS"        ,"vector<float>"     ,&lepdzBS_);
+   //myTree_->Branch("lepdszBS"        ,"vector<float>"     ,&lepdszBS_);

@@ -1,0 +1,185 @@
+DEBUG 2015-08-12 18:19:06,236: 	 Executing command: 'submit'
+DEBUG 2015-08-12 18:19:06,237: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+DEBUG 2015-08-12 18:19:06,260: 	 Checking credentials
+DEBUG 2015-08-12 18:19:06,261: 	 Found proxy file /tmp/x509up_u72624
+DEBUG 2015-08-12 18:19:06,261: 	 Getting proxy life time left
+DEBUG 2015-08-12 18:19:07,677: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u72624 -timeleft
+ output : 594171
+
+ error: 
+ retcode : 0
+DEBUG 2015-08-12 18:19:08,294: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u72624 -actimeleft
+ output : 594169
+
+ error: 
+ retcode : 0
+DEBUG 2015-08-12 18:19:08,294: 	 Proxy valid for 165:02:51 hours
+ERROR 2015-08-12 18:19:08,295: 	 CRAB configuration file --jobid not found.
+ERROR 2015-08-12 18:19:08,295: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 40, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args = True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 294, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 47, in loadConfig
+    raise ConfigurationException("CRAB configuration file %s not found." % (configname))
+ConfigurationException: CRAB configuration file --jobid not found.
+DEBUG 2015-08-12 18:19:24,752: 	 Executing command: 'submit'
+DEBUG 2015-08-12 18:19:24,752: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+DEBUG 2015-08-12 18:19:38,956: 	 Executing command: 'submit'
+DEBUG 2015-08-12 18:19:38,956: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+DEBUG 2015-08-12 18:20:45,062: 	 Executing command: 'submit'
+DEBUG 2015-08-12 18:20:45,063: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+DEBUG 2015-08-12 18:20:45,073: 	 Checking credentials
+DEBUG 2015-08-12 18:20:45,074: 	 Found proxy file /tmp/x509up_u72624
+DEBUG 2015-08-12 18:20:45,074: 	 Getting proxy life time left
+DEBUG 2015-08-12 18:20:45,780: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u72624 -timeleft
+ output : 594073
+
+ error: 
+ retcode : 0
+DEBUG 2015-08-12 18:20:46,496: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u72624 -actimeleft
+ output : 594071
+
+ error: 
+ retcode : 0
+DEBUG 2015-08-12 18:20:46,496: 	 Proxy valid for 165:01:13 hours
+INFO 2015-08-12 18:20:46,497: 	 Will use CRAB configuration file crabConfig_DYntuple.py
+DEBUG 2015-08-12 18:20:46,497: 	 Loading CRAB configuration file.
+DEBUG 2015-08-12 18:20:49,341: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2015-08-12 18:20:49,346: 	 Working area '/afs/cern.ch/work/c/cschnaib/DYanalysis/crab_DY_analysis_test3' already exists 
+Please change the requestName in the config file
+ERROR 2015-08-12 18:20:49,347: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 40, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args = True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 298, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/afs/cern.ch/work/c/cschnaib/DYanalysis/crab_DY_analysis_test3' already exists 
+Please change the requestName in the config file
+DEBUG 2015-08-12 18:27:48,344: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:27:48,345: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:27:48,345: 	 Error: crab_DYanalysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:27:48,346: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: crab_DYanalysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:27:57,379: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:27:57,380: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:27:57,380: 	 Error: crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:27:57,380: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: crab_DY_analysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:28:28,819: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:28:28,820: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:28:28,820: 	 Error: crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:28:28,820: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: crab_DY_analysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:36:55,844: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:36:55,845: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:36:55,846: 	 Error: crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:36:55,846: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: crab_DY_analysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:37:07,093: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:37:07,093: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:37:07,093: 	 Error: cschnaib_crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:37:07,094: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: cschnaib_crab_DY_analysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:38:02,266: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:38:02,266: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:38:02,268: 	 Error: cschnaib_crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:38:02,269: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: cschnaib_crab_DY_analysis_test4 is not a valid CRAB project directory.
+DEBUG 2015-08-12 18:38:08,133: 	 Executing command: 'status'
+DEBUG 2015-08-12 18:38:08,134: 	 Found CRAB cache file /afs/cern.ch/user/c/cschnaib/.crab3
+ERROR 2015-08-12 18:38:08,134: 	 Error: crab_DY_analysis_test4 is not a valid CRAB project directory.
+ERROR 2015-08-12 18:38:08,135: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 133, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/bin/crab", line 119, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 253, in __init__
+    self.validateOptions()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/status.py", line 731, in validateOptions
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1507-comp/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 563, in validateOptions
+    raise ConfigurationException(msg)
+ConfigurationException: [91mError[0m: crab_DY_analysis_test4 is not a valid CRAB project directory.
